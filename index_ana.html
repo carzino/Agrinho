@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Agrinho 2026 - Nutrição da Terra: O Vermelho que Alimenta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Poppins', 'Ubuntu', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #fff2e8 0%, #ffded5 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animações principais */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatRed {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulseGlowRed {
+            0% { box-shadow: 0 0 0 0 rgba(199, 50, 30, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(199, 50, 30, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(199, 50, 30, 0); }
+        }
+
+        @keyframes terraShine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        /* HEADER COM PALETA VERMELHA / TERRA */
+        header {
+            background: #8b2c1d;
+            background: linear-gradient(135deg, #a33624, #631a0e);
+            color: white;
+            border-radius: 0 0 3rem 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 28px rgba(110, 30, 10, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "🌾";
+            font-size: 150px;
+            position: absolute;
+            right: -15px;
+            top: -40px;
+            opacity: 0.2;
+            animation: floatRed 7s infinite ease-in-out;
+        }
+
+        header::after {
+            content: "🧑‍🌾";
+            font-size: 110px;
+            position: absolute;
+            left: -20px;
+            bottom: -25px;
+            opacity: 0.2;
+            animation: floatRed 6s infinite reverse;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .logo h1 {
+            font-size: 2.4rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0 #4a1a0e;
+        }
+
+        .logo p {
+            font-size: 1rem;
+            font-weight: 300;
+            background: rgba(0,0,0,0.2);
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .nav-links a {
+            color: #ffefcf;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #ffa559;
+            color: #fff0c0;
+            transform: scale(1.02);
+        }
+
+        /* SEÇÕES COM TONS VERMELHO/TERRA */
+        .section {
+            background: rgba(255, 245, 235, 0.92);
+            backdrop-filter: blur(3px);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 30px rgba(139, 44, 29, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.7s ease-out backwards;
+            border: 1px solid #ffc8b0;
+        }
+
+        .section:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 38px rgba(110, 30, 10, 0.25);
+        }
+
+        h2 {
+            color: #9b2f1c;
+            font-size: 2rem;
+            border-left: 8px solid #e07a3a;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .grid-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .card {
+            background: #fffaf5;
+            border-radius: 1.5rem;
+            padding: 1.6rem;
+            flex: 1 1 250px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 6px 14px rgba(128, 40, 20, 0.1);
+            border-bottom: 4px solid #d9532b;
+        }
+
+        .card:hover {
+            transform: scale(1.02) translateY(-8px);
+            background: #fff2e6;
+            border-bottom-color: #aa2e1a;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* JOGO EDUCATIVO - NUTRIÇÃO DA TERRA */
+        .game-container {
+            background: linear-gradient(115deg, #fff0e6, #ffe1d4);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            margin-top: 1rem;
+            border: 2px solid #e6a17a;
+            box-shadow: inset 0 1px 5px #fff4ed, 0 12px 20px rgba(160, 50, 20, 0.2);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .score {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: #b3422a;
+            color: #ffefcf;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            box-shadow: inset 0 -1px 0 #631a0e, 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .question {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 1.2rem 0;
+            color: #632010;
+            background: #fff3e8;
+            padding: 0.8rem;
+            border-radius: 1.2rem;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .option-btn {
+            background: white;
+            border: 2px solid #e07a4b;
+            padding: 0.9rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            color: #5e2a1a;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            background: #fadbcb;
+            transform: scale(0.98);
+            border-color: #b33e24;
+        }
+
+        .option-btn.disabled-correct {
+            background: #c7a47b;
+            border-color: #6a2c19;
+            color: #2a1208;
+            cursor: default;
+            background: #cf9f7a;
+        }
+
+        .option-btn.disabled-wrong {
+            background: #f0bcac;
+            border-color: #b33f28;
+            cursor: default;
+            text-decoration: line-through;
+            opacity: 0.8;
+        }
+
+        .feedback {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            padding: 0.8rem;
+            border-radius: 2rem;
+            background: #ffede3;
+            text-align: center;
+            border-left: 6px solid #dc5f38;
+        }
+
+        .next-btn {
+            background: #c2492e;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 0.7rem 2rem;
+            border-radius: 3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 12px rgba(150, 40, 10, 0.5);
+        }
+
+        .next-btn:hover {
+            background: #9b3520;
+            transform: scale(1.02);
+            animation: pulseGlowRed 1s infinite;
+        }
+
+        .restart-btn {
+            background: #7b3c28;
+            margin-left: 1rem;
+        }
+        .restart-btn:hover {
+            background: #542314;
+        }
+
+        footer {
+            background: #4c2418;
+            color: #ffd9c5;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 2rem 2rem 0 0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 780px) {
+            .container {
+                padding: 0.8rem;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .nav-links a {
+                margin: 0 1rem;
+            }
+            .question {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <h1>🌱 AGRINHO 2026</h1>
+            <br>
+            <h3>Feito por Ana Raquely - 2° Ano B - Colégio Estadual Professor Paulo Freire</h3>
+            <p>Nutrição da Terra · O Vermelho que Sustenta o Amanhã</p>
+        </div>
+        <div class="nav-links">
+            <a href="#tema-nutricao">Nutrição do Solo</a>
+            <a href="#projetos-vermelhos">Ações</a>
+            <a href="#jogo-solo">Jogo da Terra</a>
+            <a href="#contato">Participe</a>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- SEÇÃO PRINCIPAL: NUTRIÇÃO DA TERRA (PALETA VERMELHA) -->
+    <section id="tema-nutricao" class="section" style="animation-delay: 0.1s;">
+        <h2>🧪 Nutrição da Terra: O Vermelho Vivo do Solo</h2>
+        <p style="font-size: 1.2rem; line-height: 1.5; margin-bottom: 1.5rem;">
+            O solo saudável possui coloração viva, rica em ferro, matéria orgânica e microrganismos. A cor vermelha indica 
+            presença de óxidos de ferro e boa oxigenação, essencial para plantas fortes. O <strong>Concurso Agrinho 2026</strong> desafia 
+            escolas a desenvolverem projetos que valorizem a <strong>adubação verde, compostagem e regeneração da terra</strong>. 
+            Cuidar da nutrição da terra é garantir alimentos saudáveis, água limpa e futuro próspero do campo às cidades.
+        </p>
+        <div class="grid-info">
+            <div class="card"><div class="card-icon">🧪</div><h3>Análise do Solo</h3><p>Identifique nutrientes: NPK, pH, matéria orgânica. Solo vermelho = rico em Fe e Al.</p></div>
+            <div class="card"><div class="card-icon">🍂</div><h3>Compostagem Vermelha</h3><p>Transforme resíduos orgânicos em húmus, nutrindo a terra e reduzindo lixo.</p></div>
+            <div class="card"><div class="card-icon">🌽</div><h3>Rotação de Culturas</h3><p>Técnica ancestral que mantém a terra fértil e combate pragas naturalmente.</p></div>
+        </div>
+    </section>
+
+    <!-- PROJETOS EM DESTAQUE  -->
+    <section id="projetos-vermelhos" class="section" style="animation-delay: 0.2s;">
+        <h2>🔥 Projetos Destaque (Agricultura que Nutre)</h2>
+        <div class="grid-info">
+            <div class="card"><div class="card-icon">🪱</div><h3>Vermicompostagem Coletiva</h3><p>Estudantes criaram minhocários para reciclar resíduos escolares e gerar adubo rico.</p></div>
+            <div class="card"><div class="card-icon">🧑‍🔬</div><h3>Biofertilizantes Caseiros</h3><p>Receitas com cascas de frutas e cinzas para nutrir hortas urbanas.</p></div>
+            <div class="card"><div class="card-icon">🚜</div><h3>Plantio Direto na Palha</h3><p>Conservação do solo evitando erosão e mantendo umidade, mostrado em maquetes.</p></div>
+        </div>
+    </section>
+
+    <!-- JOGO EDUCATIVO "NUTRI-LAND" : QUIZ SOBRE SAÚDE DO SOLO -->
+    <section id="jogo-solo" class="section" style="animation-delay: 0.3s;">
+        <h2>🎮 Quiz Nutri-Terra: Alimente o Solo de Conhecimento</h2>
+        <div class="game-container">
+            <div class="quiz-header">
+                <span style="font-weight:bold;">🌿 Aprenda sobre fertilidade, cor vermelha e nutrição do solo</span>
+                <div class="score" id="scoreDisplay">🌾 Pontos: 0</div>
+            </div>
+            <div id="quizArea">
+                <div class="question" id="questionText">Carregando desafio...</div>
+                <div class="options" id="optionsContainer"></div>
+                <div class="feedback" id="feedbackMsg">🔬 Clique em uma resposta e descubra mais sobre a terra que nos alimenta.</div>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 10px;">
+                    <button class="next-btn" id="nextBtn">🌱 Próxima questão</button>
+                    <button class="next-btn restart-btn" id="restartQuizBtn">🔄 Reiniciar Jogo</button>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; text-align:center;">🧑‍🏫 Cada resposta certa vale 10 pontos. Torne-se um guardião da nutrição da terra!</p>
+    </section>
+
+    <!-- CONTATO E INSCRIÇÃO -->
+    <section id="contato" class="section" style="animation-delay: 0.4s;">
+        <h2>📢 Cultive o Futuro: Participe do Agrinho 2026</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center;">
+            <div style="flex: 1;">
+                <p style="margin-bottom: 1rem;">📍 <strong>Desafio Nutrição da Terra:</strong> Elabore um projeto que recupere ou valorize a saúde do solo na sua comunidade.</p>
+                <p>✉️ <strong>E-mail oficial:</strong> terra@agrinho2026.br</p>
+                <p>📞 <strong>Central de apoio:</strong> (43) 3522-8800</p>
+                <button id="inscreverBtn" style="background:#b33f28; border:none; padding:0.8rem 1.8rem; border-radius: 40px; color:white; font-weight:bold; margin-top: 1rem; cursor:pointer; transition:0.2s;">📝 Quero inscrever minha escola →</button>
+            </div>
+            <div style="flex: 1; background:#e6c7b5; border-radius: 1.5rem; padding: 1rem; text-align: center; border: 2px solid #bd5a3c;">
+                <span style="font-size: 3.8rem;">🧑‍🌾❤️</span>
+                <p><strong>+1.200 projetos</strong> sobre conservação do solo em 2025<br>Ajude a terra a respirar vermelho de vida!</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Concurso Agrinho – Nutrição da Terra: Solo Vivo, Futuro Vermelho. 🌍</p>
+    <p> “Da cor da terra ao alimento: cuidar do solo é cuidar da vida.”</p>
+</footer>
+
+<script>
+    // BASE DE DADOS QUIZ - NUTRIÇÃO DO SOLO (PALETA TEMÁTICA VERMELHA)
+    const questions = [
+        {
+            text: "O que indica a coloração avermelhada em muitos solos brasileiros?",
+            options: [
+                "Alta concentração de água",
+                "Presença de óxidos de ferro e boa drenagem",
+                "Poluição por metais pesados",
+                "Falta total de nutrientes"
+            ],
+            correct: 1
+        },
+        {
+            text: "Qual prática é ESSENCIAL para melhorar a nutrição da terra sem químicos?",
+            options: [
+                "Queimadas constantes",
+                "Adubação verde e compostagem",
+                "Uso excessivo de agrotóxicos",
+                "Impermeabilização do solo com cimento"
+            ],
+            correct: 1
+        },
+        {
+            text: "Qual nutriente primário (NPK) é fundamental para o enraizamento das plantas e está ligado à fertilidade?",
+            options: [
+                "Nitrogênio (N)",
+                "Fósforo (P)",
+                "Potássio (K)",
+                "Cálcio (Ca)"
+            ],
+            correct: 1
+        },
+        {
+            text: "O que é a 'matéria orgânica' do solo?",
+            options: [
+                "Restos de plantas e animais em decomposição que nutrem a terra",
+                "Apenas areia e argila",
+                "Fertilizantes sintéticos",
+                "Plásticos reciclados"
+            ],
+            correct: 0
+        },
+        {
+            text: "Por que solos vermelhos são associados a ambientes bem drenados e agricultura sustentável?",
+            options: [
+                "Porque acumulam água parada",
+                "Porque possuem argila e óxidos que liberam nutrientes lentamente, com boa aeração",
+                "Porque são inférteis",
+                "Porque não permitem plantio nenhum"
+            ],
+            correct: 1
+        },
+        {
+            text: "Qual técnica evita a erosão e mantém a cobertura do solo mesmo após a colheita?",
+            options: [
+                "Aragem profunda",
+                "Plantio direto sobre palhada",
+                "Desmatamento total da área",
+                "Mono cultura extensiva sem rotação"
+            ],
+            correct: 1
+        }
+    ];
+
+    // variáveis do estado do jogo
+    let currentQuestionIndex = 0;
+    let currentScore = 0;
+    let answerLocked = false;
+    let quizCompleted = false;
+
+    // elementos DOM
+    const questionEl = document.getElementById("questionText");
+    const optionsContainer = document.getElementById("optionsContainer");
+    const feedbackMsg = document.getElementById("feedbackMsg");
+    const scoreDisplay = document.getElementById("scoreDisplay");
+    const nextBtn = document.getElementById("nextBtn");
+    const restartBtn = document.getElementById("restartQuizBtn");
+
+    function updateScoreUI() {
+        scoreDisplay.innerText = `🌾 Pontos: ${currentScore}`;
+    }
+
+    function loadQuestion() {
+        if (quizCompleted) {
+            questionEl.innerText = "🌟 Missão Cumprida! Você nutriu sua mente com ciência do solo! 🌟";
+            optionsContainer.innerHTML = `<div style="text-align:center; padding:1.2rem; background:#fff0e0; border-radius:2rem;">
+                🧑‍🌾 <strong>Pontuação final: ${currentScore}/${questions.length * 10}</strong><br>
+                Continue praticando e divulgando a importância da terra vermelha e nutrição orgânica.
+                </div>`;
+            feedbackMsg.innerHTML = "♻️ Use o botão Reiniciar para um novo ciclo de aprendizado. Obrigado por cuidar da terra!";
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = "0.6";
+            return;
+        }
+
+        const q = questions[currentQuestionIndex];
+        questionEl.innerText = q.text;
+        optionsContainer.innerHTML = "";
+        q.options.forEach((opt, idx) => {
+            const btn = document.createElement("div");
+            btn.classList.add("option-btn");
+            btn.innerText = `${String.fromCharCode(65+idx)}. ${opt}`;
+            btn.dataset.index = idx;
+            btn.addEventListener("click", () => handleAnswer(idx, btn));
+            optionsContainer.appendChild(btn);
+        });
+        answerLocked = false;
+        const allOpts = document.querySelectorAll(".option-btn");
+        allOpts.forEach(btn => {
+            btn.classList.remove("disabled-correct", "disabled-wrong");
+            btn.style.pointerEvents = "auto";
+        });
+        feedbackMsg.innerHTML = "🌱 Escolha uma alternativa e aprenda sobre a fertilidade da terra!";
+        nextBtn.disabled = false;
+        nextBtn.style.opacity = "1";
+        nextBtn.innerText = "🌽 Próxima questão";
+    }
+
+    function handleAnswer(selectedIdx, btnElement) {
+        if (answerLocked || quizCompleted) {
+            feedbackMsg.innerHTML = "⚠️ Você já respondeu esse desafio! Avance para a próxima pergunta.";
+            return;
+        }
+        const currentQ = questions[currentQuestionIndex];
+        const isCorrect = (selectedIdx === currentQ.correct);
+        answerLocked = true;
+
+        const allButtons = document.querySelectorAll(".option-btn");
+        allButtons.forEach(btn => {
+            btn.style.pointerEvents = "none";
+        });
+
+        allButtons.forEach((btn, idx) => {
+            const optIdx = parseInt(btn.dataset.index);
+            if (optIdx === currentQ.correct) {
+                btn.classList.add("disabled-correct");
+            } else if (optIdx === selectedIdx && optIdx !== currentQ.correct) {
+                btn.classList.add("disabled-wrong");
+            }
+        });
+
+        if (isCorrect) {
+            currentScore += 10;
+            updateScoreUI();
+            feedbackMsg.innerHTML = `✅ Correto! "${currentQ.options[currentQ.correct]}" é um conhecimento valioso para a nutrição da terra. +10 pontos! 🧪❤️`;
+        } else {
+            const correctAns = currentQ.options[currentQ.correct];
+            feedbackMsg.innerHTML = `❌ Resposta errada. A alternativa correta é: "${correctAns}". Aprender sobre o solo é o primeiro passo para restaurá-lo. 📖`;
+        }
+    }
+
+    function nextQuestion() {
+        if (quizCompleted) {
+            restartQuiz();
+            return;
+        }
+        if (!answerLocked && currentQuestionIndex < questions.length) {
+            feedbackMsg.innerHTML = "🎯 Responda a pergunta atual antes de prosseguir! A terra precisa da sua resposta.";
+            return;
+        }
+        if (currentQuestionIndex + 1 >= questions.length) {
+            // Final do quiz
+            quizCompleted = true;
+            questionEl.innerText = "🏅 Você finalizou o Quiz Nutrição da Terra! 🏅";
+            optionsContainer.innerHTML = `<div style="background:#ffefe6; border-radius: 1.5rem; padding:1.5rem; text-align:center">
+                <span style="font-size:3rem;">🌾🧑‍🌾</span><br>
+                <strong style="color:#8b2c1d;">Sua pontuação: ${currentScore} de ${questions.length * 10}</strong><br>
+                Solo saudável = colheita farta. Compartilhe esse aprendizado!
+                </div>`;
+            feedbackMsg.innerHTML = "✨ Parabéns! Você entende a importância da adubação orgânica e da conservação do solo. Recomece o jogo para fixar ainda mais! ✨";
+            nextBtn.innerText = "🏁 Finalizado";
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = "0.6";
+            return;
+        }
+        currentQuestionIndex++;
+        answerLocked = false;
+        loadQuestion();
+    }
+
+    function restartQuiz() {
+        currentQuestionIndex = 0;
+        currentScore = 0;
+        answerLocked = false;
+        quizCompleted = false;
+        updateScoreUI();
+        loadQuestion();
+        nextBtn.disabled = false;
+        nextBtn.style.opacity = "1";
+        nextBtn.innerText = "🌽 Próxima questão";
+        feedbackMsg.innerHTML = "🔄 Jogo reiniciado! Mostre como você nutre o solo de conhecimento.";
+    }
+
+    nextBtn.addEventListener("click", nextQuestion);
+    restartBtn.addEventListener("click", restartQuiz);
+
+    // Inicialização
+    function initGame() {
+        currentQuestionIndex = 0;
+        currentScore = 0;
+        answerLocked = false;
+        quizCompleted = false;
+        updateScoreUI();
+        loadQuestion();
+    }
+    initGame();
+
+    // Scroll suave nos links
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Botão inscrever com alert personalizado
+    const insBtn = document.getElementById("inscreverBtn");
+    if(insBtn) {
+        insBtn.addEventListener("click", () => {
+            alert("📢 Inscrições Agrinho 2026 abertas! Tema 'Nutrição da Terra - Solo Vivo'. Procure a secretaria de educação da sua cidade e prepare seu projeto agroecológico!");
+        });
+    }
+</script>
+</body>
+</html>
